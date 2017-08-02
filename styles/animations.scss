@@ -1,0 +1,205 @@
+
+// BOURBON MIXINS
+// http://www.w3.org/TR/css3-animations/#the-animation-name-property-
+// Each of these mixins support comma separated lists of values, which allows different transitions for individual properties to be described in a single style rule. Each value in the list corresponds to the value at that same position in the other properties.
+
+@mixin prefixer(
+  $property,
+  $value,
+  $prefixes: ()
+) {
+  @each $prefix in $prefixes {
+    #{"-" + $prefix + "-" + $property}: $value;
+  }
+  #{$property}: $value;
+}
+
+@mixin animation($animations...) {
+  @include prefixer(animation, $animations, webkit moz spec);
+}
+
+@mixin animation-name($names...) {
+  @include prefixer(animation-name, $names, webkit moz spec);
+}
+
+@mixin animation-duration($times...) {
+  @include prefixer(animation-duration, $times, webkit moz spec);
+}
+
+@mixin animation-timing-function($motions...) {
+  // ease | linear | ease-in | ease-out | ease-in-out
+  @include prefixer(animation-timing-function, $motions, webkit moz spec);
+}
+
+@mixin animation-iteration-count($values...) {
+  // infinite | <number>
+  @include prefixer(animation-iteration-count, $values, webkit moz spec);
+}
+
+@mixin animation-direction($directions...) {
+  // normal | alternate
+  @include prefixer(animation-direction, $directions, webkit moz spec);
+}
+
+@mixin animation-play-state($states...) {
+  // running | paused
+  @include prefixer(animation-play-state, $states, webkit moz spec);
+}
+
+@mixin animation-delay($times...) {
+  @include prefixer(animation-delay, $times, webkit moz spec);
+}
+
+@mixin animation-fill-mode($modes...) {
+  // none | forwards | backwards | both
+  @include prefixer(animation-fill-mode, $modes, webkit moz spec);
+}
+
+$default_animation_curve: cubic-bezier(0.650, 0.000, 0.450, 1.000);
+$color--red:#d44d35;
+
+// END BOURBON MIXINS
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+      @content;
+  }
+  @-moz-keyframes #{$animationName} {
+      @content;
+  }
+  @-o-keyframes #{$animationName} {
+      @content;
+  }
+  @keyframes #{$animationName} {
+      @content;
+  }
+}
+
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}
+
+.animated-checkmark-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: $color--red;
+  fill: none;
+  animation: stroke .6s $default_animation_curve forwards;
+}
+
+.animated-checkmark {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  margin: 3% auto;
+  box-shadow: inset 0px 0px 0px $color--red;
+  animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+}
+
+.animated-checkmark-check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke .3s $default_animation_curve .8s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scale {
+  0%, 100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px $color--red;
+  }
+}
+
+@mixin increment-delay($offset: .05s, $count: 10, $delay: 0, $type: transition) {
+  @for $i from 1 through $count {
+    $time: ($i * $offset) + $delay;
+    &:nth-child(#{$i}) {
+      #{$type}-delay: $time;
+    }
+  }
+}
+
+
+@include keyframes(fadeIn) {
+  from {
+    @include transform(translateY(-20px));
+    opacity: 0;
+  }
+  to {
+    @include transform(translateY(0));
+    opacity: 1;
+  }
+}
+
+@include keyframes(rollUp) {
+  from {
+    @include transform(translateY(+20px));
+    opacity: 0;
+  }
+  to {
+    @include transform(translateY(0));
+    opacity: 1;
+  }
+}
+
+@include keyframes(sizeIn) {
+  from {
+    @include transform(translateY(+5px));
+    opacity: 0;
+    @include transform(scale(1.25));
+  }
+  to {
+    @include transform(translateY(0));
+    opacity: 1;
+    @include transform(scale(1));
+  }
+}
+
+// Delaying each fade
+@mixin animation-fadedown($delay) {
+  @include animation(fadeIn 0.5s ease-in-out);
+  @include animation-iteration-count(1);
+  @include animation-fill-mode(forwards);
+  @include animation-delay(#{$delay}s);
+}
+
+// Delaying each fade
+@mixin animation-rollup($delay) {
+  @include animation(rollUp 0.5s ease-in-out);
+  @include animation-iteration-count(1);
+  @include animation-fill-mode(forwards);
+  @include animation-delay(#{$delay+0.5}s);
+}
+
+.faded {
+  opacity: 0;
+  @include animation-fadedown(1/11);
+}
+
+.rollup {
+  opacity: 0;
+  @include animation-rollup(1/11);
+}

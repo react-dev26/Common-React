@@ -1,0 +1,34 @@
+machine:
+  node:
+    version: 8.1.2
+
+test:
+  override:
+    - echo "no tests"
+
+compile:
+  override:
+    - echo "no compile"
+
+dependencies:
+  override:
+    - yarn install
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - bash set_config.sh
+      - bash ./deploy_master.sh
+  staging:
+    branch: /.*/
+    commands:
+      - bash set_config.sh
+      - bash ./deploy_staging.sh
+
+experimental:
+  notify:
+    branches:
+      only:
+        - master
+        - production

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="36px" height="46px" viewBox="0 0 36 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+    <title>7-Onsite_laundry</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <rect id="path-1" x="0.513793945" y="0" width="35.4605713" height="39"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="35.4605713" height="39" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <rect id="path-3" x="1.49951172" y="36" width="33.4342529" height="9.22759539"></rect>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="33.4342529" height="9.22759539" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+    </defs>
+    <g id="3.0-Membership" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="3.0_Membership@2x" transform="translate(-142.000000, -1001.000000)" stroke="#D14428">
+            <g id="7-Onsite_laundry" transform="translate(142.000000, 1001.000000)">
+                <use id="Rectangle-278" mask="url(#mask-2)" stroke-width="6" xlink:href="#path-1"></use>
+                <g id="Group-23" transform="translate(10.006687, 13.000000)" stroke-width="2">
+                    <ellipse id="Oval-23" cx="8.22893382" cy="8.17427303" rx="8.22893382" ry="8.17427303"></ellipse>
+                    <path d="M2.94923702,14.1293586 C2.94923702,14.1293586 3.2172399,10.6301471 8.45997078,8.18105831 C13.7027017,5.73196948 13.9707045,2.23275797 13.9707045,2.23275797" id="Path-570"></path>
+                </g>
+                <path d="M2,5.98003549 L33.3816636,5.98003549" id="Path-570" stroke-width="2"></path>
+                <use id="Rectangle-281" mask="url(#mask-4)" stroke-width="6" xlink:href="#path-3"></use>
+            </g>
+        </g>
+    </g>
+</svg>

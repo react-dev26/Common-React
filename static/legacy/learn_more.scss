@@ -1,0 +1,208 @@
+// Altering base layout
+$mobileTablet: "(max-width : em(1024px))"; //new-breakpoint(max-width em(1024px));
+
+body.learn-more {
+  .logo.header-link {
+    img {
+      padding: 28px !important;
+    }
+  }
+  header {
+    display: none;
+  }
+  footer {
+    display: none !important;
+  }
+  #subfooter {
+    display: none;
+  }
+}
+
+// Actual styles
+
+.learn {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  text-align: left;
+
+  .learn-wrap {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+
+  form.learn-form {
+    margin-top: 18px;
+    .common-field {
+      margin-top: -9px;
+    }
+    .learn-cta {
+      margin-top: 40px;
+      width: 100%;
+      height: 50px;
+      line-height: 14px;
+    }
+  }
+
+  .learn-box {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 500px;
+    height: 100vh;
+    @media #{$mobileTablet} {
+      flex-direction: column-reverse;
+    }
+    .learn-box-inner {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      min-height: 600px;
+      height: 100%;
+    }
+    .learn-box-wrap {
+      display: flex;
+      width: 100%;
+      min-height: 500px;
+      height: 100%;
+    }
+    .learn-box-cities-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-flow: row nowrap;
+      width: 100%;
+      height: 100%;
+      @media #{$mobileTablet} {
+        flex-direction: column;
+        height: 600px;
+      }
+    }
+    .learn-box-success {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      @media #{$mobileTablet} {
+        height: 500px;
+      }
+    }
+    .learn-box-cities {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @media #{$mobileTablet} {
+        flex-direction: column;
+        height: 100%;
+      }
+      .learn-box-cities-label {
+        background: white;
+        height: 100%;
+        display: flex;
+        align-items: left;
+        justify-content: center;
+        flex-direction: column;
+        border: 1px solid #ededed;
+        padding: 38px;
+        width: 25%;
+        @media #{$mobileTablet} {
+          width: 100%;
+          height: 170px;
+        }
+        h2 {
+          margin-bottom: 0px;
+          margin-top: 0px;
+        }
+        p {
+          margin-bottom: 0px;
+        }
+      }
+      .learn-box-cities-city {
+        width: 35%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        font-family: 'Titillium Web', sans-serif;
+        font-weight: 600;
+        font-size: 1.7em;
+        line-height: 26px;
+        letter-spacing: 0.8px;
+        text-align: center;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        margin-right: 18px;
+        @media #{$mobileTablet} {
+          width: 100%;
+          height: 35%;
+          margin-right: 0px;
+        }
+      }
+      .learn-box-cities-city-overlay {
+        background: rgba(0,0,0,0.5);
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        transition: all 0.1s ease-in-out;
+        cursor: pointer;
+        &:hover {
+          background: rgba(0,0,0,0.2);
+        }
+      }
+    }
+
+    .learn-box-left {
+      display: flex;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      width: 65%;
+      .learn-box-left-overlay {
+        background: rgba(0,0,0,0.1);
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        transition: all 0.1s ease-in-out;
+        flex-direction: column;
+      }
+      .learn-box-left-home-name {
+        display: flex;
+        margin-top: auto;
+        padding: 28px;
+        color: white;
+        font-weight: 600;
+      }
+    }
+
+    .learn-box-right {
+      width: 35%;
+      background: white;
+      border: 1px solid #ededed;
+      padding: 38px;
+      @media #{$mobileTablet} {
+        width: 100%;
+        padding: 18px;
+        height: 100%;
+      }
+    }
+    h2 {
+      color: #292929;
+    }
+    p {
+      color: #505050;
+      letter-spacing: 0px;
+    }
+    .learn-box-city-select {
+      width: 100%;
+    }
+  }
+}
